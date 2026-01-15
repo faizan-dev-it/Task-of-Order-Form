@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>Order Your Delicious Cake</title>
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: #f9f9f9;
+        }
+
+        .container {
+            width: 650px;
+            margin: 30px auto;
+            background: #ffffff;
+            border: 2px solid #e5a2c5;
+            padding: 20px;
+        }
+
+        h2 {
+            margin-top: 0;
+        }
+
+        .section {
+            margin-bottom: 15px;
+        }
+
+        label {
+            display: block;
+            margin: 5px 0;
+        }
+
+        select {
+            padding: 5px;
+            width: 200px;
+        }
+
+        button {
+            padding: 8px 18px;
+            background: #8a2be2;
+            color: #fff;
+            border: none;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background: #6a1bb5;
+        }
+
+        .confirmation {
+            margin-top: 20px;
+            padding: 15px;
+            border: 2px solid #d3a4e5;
+            background: #f3e8ff;
+            display: none;
+        }
+
+        .order-number {
+            font-weight: bold;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="container">
+        <h2>Order Your Delicious Cake</h2>
+
+        <form id="cakeForm">
+
+            <div class="section">
+                <strong>Delivery or Pickup?</strong>
+                <label><input type="radio" name="delivery" required> Home Delivery</label>
+                <label><input type="radio" name="delivery"> Self Pickup</label>
+            </div>
+
+            <div class="section">
+                <strong>Choose Your Cake Size:</strong><br>
+                <select required>
+                    <option value="">-- Select --</option>
+                    <option>Small (serves 4-6)</option>
+                    <option>Medium (serves 8-10)</option>
+                    <option>Large (serves 12-15)</option>
+                </select>
+            </div>
+
+            <div class="section">
+                <strong>Extra Delight (check all that apply)</strong>
+                <label><input type="checkbox"> Chocolate Chips</label>
+                <label><input type="checkbox"> Fresh Strawberries</label>
+                <label><input type="checkbox"> Rainbow Sprinkles</label>
+            </div>
+
+            <div class="section">
+                <strong>Extras:</strong>
+                <label><input type="checkbox"> Birthday Candles</label>
+                <label><input type="checkbox"> Colorful Balloons</label>
+            </div>
+
+            <button type="submit">Place Order</button>
+        </form>
+        <div class="confirmation" id="confirmationBox">
+            <strong>✔ Order Placed!</strong><br><br>
+            Your order has been submitted!<br>
+            <span class="order-number">Order number: <span id="orderNo"></span></span>
+        </div>
+
+    </div>
+
+    <script>
+        document.getElementById("cakeForm").addEventListener("submit", function (e) {
+            e.preventDefault();
+            let orderNumber = Math.floor(1000 + Math.random() * 9000);
+            document.getElementById("orderNo").innerText = orderNumber;
+            document.getElementById("confirmationBox").style.display = "block";
+        });
+    </script>
+
+</body>
+
+</html>
